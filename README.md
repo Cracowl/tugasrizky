@@ -1,1 +1,0 @@
-# tugasrizky
