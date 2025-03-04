@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Masuk ke Akun</h2>
+        <p>Silakan login untuk melanjutkan</p>
+        
+        <div id="error-msg" class="hidden"></div>
+        
+        <div class="input-group">
+            <input type="text" id="email" placeholder="Email">
+            <span class="icon">📧</span>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+            <span class="icon">🔒</span>
+        </div>
+
+        <button onclick="validateLogin()">Login</button>
+        <p class="register-text">Belum punya akun? <a href="#">Daftar</a></p>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let errorMsg = document.getElementById("error-msg");
+
+            if (!email.includes("@")) {
+                showError("⚠️ Email tidak valid! Masukkan email yang benar.");
+                return;
+            }
+
+            if (password.length < 5) {
+                showError("⚠️ Password terlalu pendek! Minimal 5 karakter.");
+                return;
+            }
+
+            alert("✅ Login berhasil! Selamat datang 🎉");
+            errorMsg.classList.add("hidden");
+        }
+
+        function showError(message) {
+            let errorMsg = document.getElementById("error-msg");
+            errorMsg.innerHTML = message;
+            errorMsg.classList.remove("hidden");
+            errorMsg.classList.add("error-style");
+        }
+    </script>
+</body>
+</html>
